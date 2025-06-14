@@ -1,9 +1,12 @@
-function playGame(){
-    let humanCount = 0;
-    let computerCount = 0;
-    do{
-        function playRound(){
-            // let humanChoice = prompt("choose rock or paper or scissors").toLowerCase();
+
+let whoWon = document.querySelector(".whoWon")
+let countDiv = document.querySelector(".count")
+document.querySelector(".rock").addEventListener("click",()=>{playRound("rock")})
+document.querySelector(".paper").addEventListener("click",()=>{playRound("paper")})
+document.querySelector(".scissors").addEventListener("click",()=>{playRound("scissors")})
+let humanCount = 0;
+let computerCount = 0;
+        function playRound(humanChoice){
             let computerChoice = getComputerChoice();
             function getComputerChoice(){
                 let tempVar = Math.random() *3
@@ -18,26 +21,35 @@ function playGame(){
                 }};
             
                 if (humanChoice ==="rock"&&computerChoice==="scissors"){
+                    whoWon.setAttribute("style", "background:url(checkmark.png);background-position: center;background-size: cover;");
                     console.log(humanChoice)
                     console.log(computerChoice)
                     humanCount++;
+                    countDiv.textContent = `you won: ${humanCount} : ${computerCount}`
                     console.log(`you won: ${humanCount} : ${computerCount}`)
                 }
                 else if (humanChoice==="paper"&&computerChoice==="rock"){
+                    whoWon.setAttribute("style", "background:url(checkmark.png);background-position: center;background-size: cover;");
                     console.log(humanChoice)
                     console.log(computerChoice)
                     humanCount++;
+                    countDiv.textContent = `you won: ${humanCount} : ${computerCount}`
                     console.log(`you won: ${humanCount}: ${computerCount}`)
                 }
                 else if(humanChoice==="scissors"&&computerChoice==="paper"){
+                    whoWon.setAttribute("style", "background:url(checkmark.png);background-position: center;background-size: cover;");
                     console.log(humanChoice)
                     console.log(computerChoice)
                     humanCount++
+                    countDiv.textContent = `you won: ${humanCount} : ${computerCount}`
                     console.log(`you won: ${humanCount}: ${computerCount}`)
                 }
                 else if(humanChoice===computerChoice){
+                    whoWon.setAttribute("style", "background:url(tie.webp);background-position: center;background-size: contain;");
+
                     console.log(humanChoice)
                     console.log(computerChoice)
+                    countDiv.textContent = `tie: ${humanCount} : ${computerCount}`
                     console.log(`tie: ${humanCount}: ${computerCount}`)
 
                 }
@@ -46,19 +58,16 @@ function playGame(){
                     console.log(`you won: ${humanCount}: ${computerCount}`)
                 }
                 else{
+                    whoWon.setAttribute("style", "background:url(cross.png);background-position: center;background-size: cover;");
                     console.log(humanChoice)
                     console.log(computerChoice)
                     computerCount++
+                    countDiv.textContent = `you lost: ${humanCount} : ${computerCount}`
                     console.log(`computer won: ${humanCount}: ${computerCount}`)
                 }
 
             
         }
-        playRound()
-      }while(humanCount < 5 && computerCount < 5)
     
         console.log(`you won`)
     
-
-}
-setTimeout(playGame(),3000)

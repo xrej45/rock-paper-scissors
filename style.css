@@ -49,7 +49,6 @@ body{
     position: absolute;
     height: 500px;
     width: 500px;
-    background:url(cross.png);
     background-position: center;
     background-size: cover;
     left: 50%;
