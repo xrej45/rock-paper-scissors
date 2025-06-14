@@ -3,7 +3,7 @@ function playGame(){
     let computerCount = 0;
     do{
         function playRound(){
-            let humanChoice = prompt("choose rock or paper or scissors").toLowerCase();
+            // let humanChoice = prompt("choose rock or paper or scissors").toLowerCase();
             let computerChoice = getComputerChoice();
             function getComputerChoice(){
                 let tempVar = Math.random() *3
@@ -55,7 +55,7 @@ function playGame(){
             
         }
         playRound()
-      }while(humanCount < 5)
+      }while(humanCount < 5 && computerCount < 5)
     
         console.log(`you won`)
     
